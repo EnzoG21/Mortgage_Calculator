@@ -29,6 +29,17 @@
     margin-bottom: 15px;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="text"]::placeholder,
+input[type="number"]::placeholder {
+    color: #999;
+}
+
 .calculate-btn {
     background-color: #007bff;
     color: #fff;
@@ -51,6 +62,7 @@
     padding: 15px;
     border-radius: 5px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .graph,
@@ -103,4 +115,20 @@
 
 .show-more-button:hover {
     background-color: #f2f2f2;
+}
+
+#restart-button {
+    background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        align-self: flex-start;
+        width: auto;
+}
+
+#restart-button:hover {
+    background-color: #0056b3;
 }

@@ -5,21 +5,29 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
 </head>
+<style>
+    input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+</style>
 
 <body>
     <section class="container">
+        <h1>Mortgage Calculator</h1>
         <form class="form" action="#">
             <label for="house-price">House Purchase Price</label>
-            <input id="house-price" type="number" required>
+            <input id="house-price" type="number" placeholder="100" required>
 
             <label for="deposit">Deposit</label>
-            <input id="deposit" type="number" required>
+            <input id="deposit" type="number" placeholder="50" required>
 
             <label for="interest-rate">Interest Rate</label><span>&percnt;</span>
-            <input id="interest-rate" type="number" required> 
+            <input id="interest-rate" type="number" placeholder="3" required> 
 
             <label for="mortgage-term">Mortgage Term (Years)</label>
-            <input id="mortgage-term" type="number" required>
+            <input id="mortgage-term" type="number" placeholder="10" required>
 
             <label for="allow-checkbox">
                 Allow us to use your data to calculate
@@ -62,8 +70,5 @@
 </html>
 
 
-<!--Table scrollable-->
-<!--Make columns less wide-->
-<!--Make section smaller-->
+
 <!--Make a call to action-->
-<!--Spacing between graph and table-->
