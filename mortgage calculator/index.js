@@ -109,17 +109,37 @@ document.addEventListener("DOMContentLoaded", function() {
         const tbody = repaymentTable.querySelector('tbody');
         tbody.innerHTML = '';
 
-        // Populate table rows with data
-        for (let i = 0; i < data.labels.length; i++) {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${data.labels[i]}</td>
-                <td>${formatter.format(data.interestPayments[i])}</td>
-                <td>${formatter.format(data.principalPayments[i])}</td>
-                <td>${formatter.format(data.remainingBalances[i])}</td>
-            `;
-            tbody.appendChild(row);
-        }
+        // Populate only the first row
+        const firstRow = document.createElement('tr');
+        firstRow.innerHTML = `
+            <td>${data.labels[0]}</td>
+            <td>${formatter.format(data.interestPayments[0])}</td>
+            <td>${formatter.format(data.principalPayments[0])}</td>
+            <td>${formatter.format(data.remainingBalances[0])}</td>
+        `;
+        tbody.appendChild(firstRow);
+
+        // Add a button to show the rest of the rows
+        const showMoreButton = document.createElement('button');
+        showMoreButton.textContent = 'Show More';
+        showMoreButton.classList.add('show-more-button');
+        showMoreButton.addEventListener('click', function() {
+            // Populate the rest of the rows
+            for (let i = 1; i < data.labels.length; i++) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${data.labels[i]}</td>
+                    <td>${formatter.format(data.interestPayments[i])}</td>
+                    <td>${formatter.format(data.principalPayments[i])}</td>
+                    <td>${formatter.format(data.remainingBalances[i])}</td>
+                `;
+                tbody.appendChild(row);
+            }
+            // Hide the show more button
+            showMoreButton.style.display = 'none';
+        });
+        // Append button after the table
+        tbody.parentNode.parentNode.appendChild(showMoreButton);
     }
 
     // Event listener for form submission
