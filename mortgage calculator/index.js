@@ -15,28 +15,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to generate data for the repayment schedule
     function generateRepaymentData(principal, numOfPayments, interestRate) {
         const labels = [];
-        const interestPayments = [];
-        const principalPayments = [];
+        const totalPayments = [];
         const remainingBalances = [];
 
         let remainingPrincipal = principal;
         for (let i = 1; i <= numOfPayments; i++) {
-            const interestPayment = remainingPrincipal * interestRate;
-            const principalPayment = monthlyPayment(principal, numOfPayments, interestRate) - interestPayment;
+            const totalPayment = monthlyPayment(principal, numOfPayments, interestRate);
+
+            const interestPayment = totalPayment / 2;
+            const principalPayment = totalPayment / 2;
 
             remainingPrincipal -= principalPayment;
 
             // Add data to arrays
             labels.push(`Month ${i}`);
-            interestPayments.push(interestPayment);
-            principalPayments.push(principalPayment);
+            totalPayments.push(totalPayment);
             remainingBalances.push(remainingPrincipal);
         }
 
         return {
             labels: labels,
-            interestPayments: interestPayments,
-            principalPayments: principalPayments,
+            interestPayments: totalPayments.map(payment => payment / 2),
+            principalPayments: totalPayments.map(payment => payment / 2),
             remainingBalances: remainingBalances
         };
     }
