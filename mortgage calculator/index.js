@@ -126,6 +126,9 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        // Hide the form
+        form.style.display = "none";
+
         // Retrieve form inputs
         const housePrice = parseInt(document.getElementById('house-price').value);
         const deposit = parseInt(document.getElementById('deposit').value);
