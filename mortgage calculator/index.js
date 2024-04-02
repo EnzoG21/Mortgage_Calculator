@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const repaymentTable = document.getElementById("repayment-table");
     const graphSection = document.querySelector(".graph");
     const tableSection = document.querySelector(".schedule");
+    let repaymentChart; // Declare repaymentChart variable
 
     // Function to generate data for the repayment schedule
     function generateRepaymentData(principal, numOfPayments, interestRate) {
@@ -43,8 +44,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to render the repayment schedule graph
     function renderRepaymentGraph(data) {
+        if (repaymentChart) {
+            // If repaymentChart exists, destroy it
+            repaymentChart.destroy();
+        }
         const ctx = document.getElementById('repayment-chart').getContext('2d');
-        new Chart(ctx, {
+        repaymentChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: data.labels,
@@ -171,5 +176,24 @@ document.addEventListener("DOMContentLoaded", function() {
         // Show graph and table sections
         graphSection.style.display = "block";
         tableSection.style.display = "block";
+    });
+
+    // Add event listener for the restart button
+    const restartButton = document.getElementById("restart-button");
+    restartButton.addEventListener("click", function() {
+        // Show the form
+        form.style.display = "block";
+        // Hide graph and table sections
+        graphSection.style.display = "none";
+        tableSection.style.display = "none";
+        // Reset form inputs
+        form.reset();
+        // Clear the graph
+        if (repaymentChart) {
+            repaymentChart.destroy();
+        }
+        // Clear the table
+        const tbody = repaymentTable.querySelector('tbody');
+        tbody.innerHTML = '';
     });
 });
