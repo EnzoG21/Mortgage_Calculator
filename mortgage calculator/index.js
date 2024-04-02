@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const graphSection = document.querySelector(".graph");
     const tableSection = document.querySelector(".schedule");
     let repaymentChart; // Declare repaymentChart variable
+    let showMoreButton; // Declare showMoreButton variable
 
     // Function to generate data for the repayment schedule
     function generateRepaymentData(principal, numOfPayments, interestRate) {
@@ -125,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
         tbody.appendChild(firstRow);
 
         // Add a button to show the rest of the rows
-        const showMoreButton = document.createElement('button');
+        showMoreButton = document.createElement('button');
         showMoreButton.textContent = 'Show More';
         showMoreButton.classList.add('show-more-button');
         showMoreButton.addEventListener('click', function() {
@@ -195,5 +196,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Clear the table
         const tbody = repaymentTable.querySelector('tbody');
         tbody.innerHTML = '';
+        // Clear the payment amount
+        paymentAmount.textContent = '';
+        // Clear the "Show More" button
+        if (showMoreButton) {
+            showMoreButton.style.display = 'none';
+        }
     });
 });
