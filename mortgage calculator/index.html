@@ -1,74 +1,69 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- Document type declaration -->
 <html lang="en">
-<head>
-    <title>Mortgage Calculator</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-</head>
-<style>
-    input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-</style>
+	<!-- Language of the document -->
 
-<body>
-    <section class="container">
-        <h1>Mortgage Calculator</h1>
-        <form class="form" action="#">
-            <label for="house-price">House Purchase Price</label>
-            <input id="house-price" type="number" placeholder="100" required>
+	<head>
+		<title>Mortgage Calculator</title> <!-- Title of the document -->
+		<meta charset="UTF-8"> <!-- Character encoding -->
+		<link rel="stylesheet" href="style.css"> <!-- Link to external stylesheet -->
+	</head>
 
-            <label for="deposit">Deposit</label>
-            <input id="deposit" type="number" placeholder="50" required>
+	<body>
+		<section class="container">
+			<!-- Heading of the calculator -->
+			<h1>Mortgage Calculator</h1>
+			<form class="form" action="#">
+				<label for="house-price">House Purchase Price</label>
+				<input id="house-price" type="number" placeholder="100" required>
 
-            <label for="interest-rate">Interest Rate</label><span>&percnt;</span>
-            <input id="interest-rate" type="number" placeholder="3" required> 
+				<label for="deposit">Deposit</label>
+				<input id="deposit" type="number" placeholder="50" required>
 
-            <label for="mortgage-term">Mortgage Term (Years)</label>
-            <input id="mortgage-term" type="number" placeholder="10" required>
+				<label for="interest-rate">Interest Rate</label><span>&percnt;</span>
+				<input id="interest-rate" type="number" placeholder="3" required>
 
-            <label for="allow-checkbox">
-                Allow us to use your data to calculate
-                <input id="allow-checkbox" type="checkbox" required>
-            </label>
+				<label for="mortgage-term">Mortgage Term (Years)</label>
+				<input id="mortgage-term" type="number" placeholder="10" required>
 
-            <button type="submit" class="calculate-btn">Calculate</button>
-            
+				<label for="allow-checkbox">
+					Allow us to use your data to calculate
+					<input id="allow-checkbox" type="checkbox" required>
+				</label>
 
-        </form>
-        <p>Your monthly mortgage payment will be <span class="payment-amount"></span></p>
+				<button type="submit" class="calculate-btn">Calculate</button>
 
-        <section class="graph">
-            <h2>Mortgage Repayment Schedule Graph</h2>
-            <canvas id="repayment-chart" ></canvas>
-        </section>
 
-        <section class="schedule">
-            <h2>Mortgage Repayment Schedule Table</h2>
-            <table id="repayment-table">
-                <thead>
-                    <tr>
-                        <th>Month</th>
-                        <th>Interest Payment</th>
-                        <th>Principal Payment</th>
-                        <th>Remaining Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table body will be filled here -->
-                </tbody>
-            </table>
-        </section>
-        <button id="restart-button">Restart</button>
-    </section>
+			</form>
+			<p>Your monthly mortgage payment will be <span class="payment-amount"></span></p>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="index.js"></script>
-</body>
+			<!-- Section for mortgage repayment schedule graph -->
+			<section class="graph">
+				<h2>Mortgage Repayment Schedule Graph</h2>
+				<canvas id="repayment-chart"></canvas>
+			</section>
+
+			<!-- Section for mortgage repayment schedule table -->
+			<section class="schedule">
+				<h2>Mortgage Repayment Schedule Table</h2>
+				<table id="repayment-table">
+					<thead>
+						<tr>
+							<th>Month</th>
+							<th>Interest Payment</th>
+							<th>Principal Payment</th>
+							<th>Remaining Balance</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- Table body will be filled here -->
+					</tbody>
+				</table>
+			</section>
+			<button id="restart-button">Restart</button> <!-- Button to restart the calculator -->
+		</section>
+
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Link to Chart.js library -->
+		<script src="index.js"></script> <!-- Link to external JavaScript file -->
+	</body>
+
 </html>
-
-
-
-<!--Make a call to action-->
